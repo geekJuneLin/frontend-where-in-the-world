@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
+
+/* general */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button {
+    background-color: hsl(0, 0%, 98%);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-shadow {
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px hsl(0, 0%, 90%);
+}
+
+
+/* header */
+
+header {
+    background-color: #fff;
+    box-shadow: 0 1px 6px hsl(0, 0%, 90%);
+}
+
+header .row {
+    padding: 2% 6%;
+}
+
+.brand-title {
+    color: hsl(200, 15%, 8%);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.mode-switch {
+    color: hsl(0, 0%, 52%);
+    font-weight: 600;
+}
+
+.mode-switch button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: hsl(200, 15%, 8%);
+    background-color: #fff;
+    font-size: 1.2rem;
+}
+
+.switch-icon {
+    margin: 0 1em;
+}
+
+
+/* search & result section */
+
+.search-result {
+    padding: 4% 6%;
+}
+
+.search-result form {
+    flex: 50%;
+}
+
+.search-result button {
+    border: none;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.search-btn {
+    position: relative;
+    right: -2.75em;
+    fill: hsl(0, 0%, 52%);
+}
+
+.search-result form input[type=search] {
+    padding: 2em 0 2em 3.5em;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    width: 35%;
+    height: 2em;
+}
+
+.search-result form input[type=search]::before {
+    content: "";
+}
+
+.search-result form input[type=search]::placeholder {
+    color: hsl(0, 0%, 52%);
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+.filter {
+    padding: 1em 2em;
+    text-align: baseline;
+}
+
+.filter .fa-sort-up {
+    display: none;
+    position: relative;
+    left: -12px;
+    top: 4px;
+}
+
+.filter label {
+    margin-right: 2.5em;
+    padding-top: 0.8em;
+}
