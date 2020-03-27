@@ -5,14 +5,14 @@ const app = express();
 app.set("view engine", "ejs");
 
 // set the static folder
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 // home page
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
+    res.render("search-page");
+});
 
 // set server port
 app.listen(3000, (req, res) => {
-    console.log('server is running on port 3000')
-})
+    console.log("server is running on port 3000");
+});

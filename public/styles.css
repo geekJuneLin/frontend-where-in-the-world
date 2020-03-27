@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap");
 
 /* general */
 
@@ -10,13 +10,14 @@
 body,
 button {
     background-color: hsl(0, 0%, 98%);
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .box-shadow {
@@ -80,11 +81,12 @@ header .row {
 
 .search-btn {
     position: relative;
-    right: -2.75em;
+    right: -1.75em;
     fill: hsl(0, 0%, 52%);
 }
 
-.search-result form input[type=search] {
+.search-result form input[type="search"] {
+    margin-left: -1.25em;
     padding: 2em 0 2em 3.5em;
     border: none;
     outline: none;
@@ -93,11 +95,7 @@ header .row {
     height: 2em;
 }
 
-.search-result form input[type=search]::before {
-    content: "";
-}
-
-.search-result form input[type=search]::placeholder {
+.search-result form input[type="search"]::placeholder {
     color: hsl(0, 0%, 52%);
     font-weight: 300;
     font-size: 0.85rem;
@@ -118,4 +116,41 @@ header .row {
 .filter label {
     margin-right: 2.5em;
     padding-top: 0.8em;
+}
+
+
+/* countries section */
+
+.countries-section {
+    padding: 4% 6%;
+}
+
+.country-card {
+    max-width: 340px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.country-card img {
+    width: 100%;
+    height: 40%;
+}
+
+.details {
+    padding: 1.5em 2em;
+}
+
+.details h1 {
+    margin-bottom: 1em;
+}
+
+.details p {
+    font-weight: 600;
+    margin: 0.5em 0;
+}
+
+.details span {
+    font-weight: 300;
 }
