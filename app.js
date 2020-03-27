@@ -1,4 +1,5 @@
 const express = require("express");
+const request = require("request");
 const app = express();
 
 // set ejs view engine
@@ -9,7 +10,29 @@ app.use(express.static("public"));
 
 // home page
 app.get("/", (req, res) => {
-    res.render("search-page");
+    let fetchedCountries = [];
+    request.get("https://restcountries.eu/rest/v2/all", (err, response, body) => {
+        if (err) {
+            console.log("Fetching countries information with errors: " + err);
+        } else {
+            let decodedRes = JSON.parse(body);
+            decodedRes.forEach(country => {
+                // console.log(country.name + ", flag: " + country.flag);
+                packedCountry = {
+                    name: country.name,
+                    flag: country.flag,
+                    population: country.population,
+                    capital: country.capital,
+                    region: country.region
+                };
+
+                fetchedCountries.push(packedCountry);
+            });
+            // testing
+            console.log(fetchedCountries.length);
+            res.render("search-page", { countries: fetchedCountries });
+        }
+    });
 });
 
 // set server port
