@@ -36,9 +36,15 @@
                     <div class="borders">
                         <p>
                             Border Countries:
-                            <span class="border-card box-shadow">France</span>
-                            <span class="border-card box-shadow">Germany</span>
-                            <span class="border-card box-shadow">Netherlands</span>
+                            <% country.borders.forEach((b)=>{ %>
+                                <%
+            fetchedCountries.forEach((c)=>{ %>
+                                    <% if(c.alpha3Code === b) {%>
+                                        <span class="border-card box-shadow"><%= c.name %></span>
+                                        <% return; %>
+                                            <% } %>
+                                                <% }) %>
+                                                    <% }) %>
                         </p>
                     </div>
                 </div>

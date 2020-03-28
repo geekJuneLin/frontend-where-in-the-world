@@ -24,6 +24,8 @@ app.get("/", (req, res) => {
                 } else {
                     let decodedRes = JSON.parse(body);
 
+                    console.log(decodedRes);
+
                     decodedRes.forEach(country => {
                         // console.log(country.name + ", flag: " + country.flag);
                         packedCountry = {
@@ -37,10 +39,9 @@ app.get("/", (req, res) => {
                             borders: country.borders,
                             currencies: country.currencies,
                             languages: country.languages,
-                            nativeName: country.nativeName
+                            nativeName: country.nativeName,
+                            alpha3Code: country.alpha3Code
                         };
-
-                        console.log(packedCountry);
 
                         fetchedCountries.push(packedCountry);
                     });
@@ -61,7 +62,10 @@ app.get("/details/:name", (req, res) => {
     console.log("Country name is: " + countryName);
     fetchedCountries.forEach(country => {
         if (country.name === countryName) {
-            res.render("details", { country: country });
+            res.render("details", {
+                country: country,
+                fetchedCountries: fetchedCountries
+            });
             console.log(country);
             return;
         }
