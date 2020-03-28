@@ -3,22 +3,34 @@
     <section class="details-section">
         <a href="/" class="box-shadow"> <i class="fas fa-arrow-left"></i> Back </a>
         <div class="country-details">
-            <img src="/1200px-Flag_of_Germany.svg.webp" alt="" />
+            <img src="<%=country.flag%>" alt="" />
             <div class="info">
                 <div>
                     <div class="left">
-                        <h1>Germany</h1>
-                        <p>Native Name: <span>Belgie</span></p>
-                        <p>Population: <span>11,319,511</span></p>
-                        <p>Region: <span>Europe</span></p>
-                        <p>Sub Region: <span>Western Europe</span></p>
-                        <p>Capital: <span>Brussels</span></p>
+                        <h1>
+                            <%=country.name%>
+                        </h1>
+                        <p>Native Name: <span><%=country.nativeName%></span></p>
+                        <p>Population: <span><%=country.population%></span></p>
+                        <p>Region: <span><%=country.region%></span></p>
+                        <p>Sub Region: <span><%=country.subRegion%></span></p>
+                        <p>Capital: <span><%=country.capital%></span></p>
                     </div>
 
                     <div class="right">
-                        <p>Top Level Domain: <span>be</span></p>
-                        <p>Currencies: <span>Euro</span></p>
-                        <p>Languages: <span>Dutch, French, German</span></p>
+                        <p>Top Level Domain: <span><%=country.topLevelDomain%></span></p>
+                        <p>
+                            Currencies:
+                            <% country.currencies.forEach((c)=>{ %>
+                                <span><%= c.code %></span>
+                                <% }) %>
+                        </p>
+                        <p>
+                            Languages:
+                            <% country.languages.forEach((l)=>{ %>
+                                <span><%= l.name %></span>
+                                <% }) %>
+                        </p>
                     </div>
 
                     <div class="borders">

@@ -1,5 +1,6 @@
 const express = require("express");
 const request = require("request");
+const bodyParser = require("body-parser");
 const app = express();
 
 // set ejs view engine
@@ -7,41 +8,64 @@ app.set("view engine", "ejs");
 
 // set the static folder
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// global var
+let fetchedCountries = [];
 
 // home page
 app.get("/", (req, res) => {
-    let fetchedCountries = [];
-    request.get("https://restcountries.eu/rest/v2/all", (err, response, body) => {
-        if (err) {
-            console.log("Fetching countries information with errors: " + err);
-        } else {
-            let decodedRes = JSON.parse(body);
-            decodedRes.forEach(country => {
-                // console.log(country.name + ", flag: " + country.flag);
-                packedCountry = {
-                    name: country.name,
-                    flag: country.flag,
-                    population: country.population,
-                    capital: country.capital,
-                    region: country.region
-                };
+    if (fetchedCountries.length == 0) {
+        request.get(
+            "https://restcountries.eu/rest/v2/all",
+            (err, response, body) => {
+                if (err) {
+                    console.log("Fetching countries information with errors: " + err);
+                } else {
+                    let decodedRes = JSON.parse(body);
 
-                fetchedCountries.push(packedCountry);
-            });
-            // testing
-            console.log(fetchedCountries.length);
-            res.render("search-page", { countries: fetchedCountries });
-        }
-    });
+                    decodedRes.forEach(country => {
+                        // console.log(country.name + ", flag: " + country.flag);
+                        packedCountry = {
+                            name: country.name,
+                            flag: country.flag,
+                            population: country.population,
+                            capital: country.capital,
+                            region: country.region,
+                            topLevelDomain: country.topLevelDomain,
+                            subRegion: country.subRegion,
+                            borders: country.borders,
+                            currencies: country.currencies,
+                            languages: country.languages,
+                            nativeName: country.nativeName
+                        };
+
+                        console.log(packedCountry);
+
+                        fetchedCountries.push(packedCountry);
+                    });
+                    // testing
+                    console.log(fetchedCountries.length);
+                    res.render("search-page", { countries: fetchedCountries });
+                }
+            }
+        );
+    } else {
+        res.render("search-page", { countries: fetchedCountries });
+    }
 });
 
 // details page
-app.get("/details", (req, res) => {
-    res.render("details");
-});
-
-app.post("/details", (req, res) => {
-    console.log("btn clicked!");
+app.get("/details/:name", (req, res) => {
+    let countryName = req.params.name;
+    console.log("Country name is: " + countryName);
+    fetchedCountries.forEach(country => {
+        if (country.name === countryName) {
+            res.render("details", { country: country });
+            console.log(country);
+            return;
+        }
+    });
 });
 
 // set server port
