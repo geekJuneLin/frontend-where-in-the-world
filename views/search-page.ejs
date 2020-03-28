@@ -9,11 +9,21 @@
             </form>
 
             <div class="filter box-shadow">
-                <label for="">Filter by Region</label>
-                <button>
-            <i class="fas fa-sort-down"></i>
-            <i class="fas fa-sort-up"></i>
-          </button>
+                <button onclick="filterOnClick()">
+                    Filter by Region
+                    <i class="fas fa-sort-down"></i>
+                    <i class="fas fa-sort-up"></i>
+                </button>
+
+                <div class="dropdown box-shadow">
+                    <ul>
+                        <li>Africa</li>
+                        <li>America</li>
+                        <li>Asia</li>
+                        <li>Europe</li>
+                        <li>Oceania</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
