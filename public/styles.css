@@ -7,6 +7,14 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #111;
+}
+
 body,
 button {
     background-color: hsl(0, 0%, 98%);
@@ -154,4 +162,85 @@ header .row {
 
 .details span {
     font-weight: 300;
+}
+
+
+/*////// details page ////////*/
+
+.details-section {
+    padding: 4% 6%;
+}
+
+.details-section a {
+    padding: 0.75em 2.5em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+.details-section a i {
+    margin-right: 0.75em;
+}
+
+.country-details {
+    margin-top: 6em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.country-details img {
+    width: 45%;
+    max-width: 45%;
+    min-width: 300px;
+    height: 20%;
+    max-height: 20%;
+    min-height: 150px;
+}
+
+.info {
+    margin-left: 12em;
+    width: 40%;
+}
+
+.info>div {
+    width: 100%;
+}
+
+.info p {
+    padding: 0.5em 0;
+    font-weight: 600;
+}
+
+.info span {
+    font-weight: 300;
+}
+
+.left,
+.right {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 4em;
+}
+
+.left h1 {
+    margin: 1.25em 0;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.right {
+    position: relative;
+    top: -4.8em;
+}
+
+.borders {
+    width: 100%;
+}
+
+.border-card {
+    padding: 0.25em 0.75em;
+    margin: 0 0.25em;
 }

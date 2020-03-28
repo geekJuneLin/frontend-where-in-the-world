@@ -35,6 +35,15 @@ app.get("/", (req, res) => {
     });
 });
 
+// details page
+app.get("/details", (req, res) => {
+    res.render("details");
+});
+
+app.post("/details", (req, res) => {
+    console.log("btn clicked!");
+});
+
 // set server port
 app.listen(3000, (req, res) => {
     console.log("server is running on port 3000");
