@@ -5,7 +5,7 @@
                 <button class="search-btn">
             <i class="fas fa-search"></i>
           </button>
-                <input class="box-shadow" type="search" name="" id="search" placeholder="Search for a country..." />
+                <input class="box-shadow" type="search" name="" id="search" placeholder="Search for a country..." autocomplete="off" />
             </form>
 
             <div class="filter box-shadow">
@@ -33,12 +33,12 @@
             <% countries.forEach((country)=>{ %>
                 <div class="country-card box-shadow">
                     <a href="/details/<%=country.name%>">
-                        <img src="<%=country.flag%>" width="180px" height="100px" alt="germany-flag" />
+                        <img src="<%=country.flag%>" alt="germany-flag" />
                         <div class="details">
                             <h1>
                                 <%=country.name%>
                             </h1>
-                            <p>Population: <span><%=country.population%></span></p>
+                            <p>Population: <span><%=country.population.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g)%></span></p>
                             <p>Region: <span><%=country.region%></span></p>
                             <p>Capital: <span><%=country.capital%></span></p>
                         </div>
