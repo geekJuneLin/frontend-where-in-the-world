@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // global var
 let fetchedCountries = [];
+var darkMode = false;
 
 // home page
 app.get("/", (req, res) => {
@@ -52,7 +53,9 @@ app.get("/", (req, res) => {
             }
         );
     } else {
-        res.render("search-page", { countries: fetchedCountries });
+        res.render("search-page", {
+            countries: fetchedCountries
+        });
     }
 });
 
